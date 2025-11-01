@@ -4,11 +4,16 @@ name = "isaac_lab"
 platforms = ["linux-64", "win-64"]
 version = "0.1.0"
 
-[pypi-options]
-extra-index-urls = ["https://pypi.nvidia.com"]
-
 [system-requirements]
 libc = { family = "glibc", version = "2.35" }
+
+[dependencies]
+python = "3.11.*"
+git = "*"
+pip = "*"
+
+[pypi-options]
+extra-index-urls = ["https://pypi.nvidia.com"]
 
 [pypi-dependencies]
 torch = { version = "==2.7.0", index = "https://download.pytorch.org/whl/cu128" }
@@ -32,8 +37,3 @@ lab-markers = "python IsaacLab/scripts/demos/markers.py"
 
 # Run custom scripts
 lab-run = "cd IsaacLab && ./isaaclab.sh -p"
-
-[dependencies]
-python = "3.11.*"
-git = "*"
-pip = "*"
