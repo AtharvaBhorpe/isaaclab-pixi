@@ -39,5 +39,5 @@ lab-run = "cd IsaacLab && ./isaaclab.sh -p"
 
 [dependencies]
 python = "3.11.*"
-git = ">=2.51.2,<3"
-pip = ">=25.2,<26"
+git = "*"
+pip = "*"
