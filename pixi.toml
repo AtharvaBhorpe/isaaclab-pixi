@@ -21,9 +21,15 @@ torchvision = { version = "==0.22.0", index = "https://download.pytorch.org/whl/
 isaacsim = { version = "==5.1.0", extras = ["all", "extscache"] }
 
 [tasks]
+# Installation tasks
 clone-isaaclab = "test -d IsaacLab || git clone ..."
 install-isaaclab = { cmd = "cd IsaacLab && pip install -e .", depends-on = ["clone-isaaclab"] }
 setup = { depends-on = ["install-isaaclab"] }
+
+# Verify installation
+test-import = "python -c 'import isaaclab; print(\"Isaac Lab installed:\", isaaclab.__file__)'"
+test-torch = "python -c 'import torch; print(\"CUDA available:\", torch.cuda.is_available())'"
+verify = { depends-on = ["test-import", "test-torch"] }
 
 # Launch Isaac Sim GUI
 isaac-sim = "isaacsim"
@@ -35,5 +41,6 @@ lab-quadrupeds = "python IsaacLab/scripts/demos/quadrupeds.py"
 lab-cartpole = "python IsaacLab/scripts/demos/cartpole.py"
 lab-markers = "python IsaacLab/scripts/demos/markers.py"
 
-# Run custom scripts
-lab-run = "cd IsaacLab && ./isaaclab.sh -p"
+# Utilities
+lab-list-demos = "ls -1 IsaacLab/scripts/demos/*.py"
+clean = "rm -rf IsaacLab .pixi pixi.lock"
