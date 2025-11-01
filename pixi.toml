@@ -23,12 +23,6 @@ setup = { depends-on = ["install-isaaclab"] }
 # Launch Isaac Sim GUI
 isaac-sim = "isaacsim"
 
-# Or launch with Python script
-isaac-sim-python = "python -c 'from isaacsim import SimulationApp; app = SimulationApp({\"headless\": False}); import time; time.sleep(60); app.close()'"
-
-# Launch Isaac Sim with a specific scene
-isaac-sim-empty = "python -c 'from isaacsim import SimulationApp; app = SimulationApp({\"headless\": False}); from omni.isaac.core import World; world = World(); world.scene.add_default_ground_plane(); import time; time.sleep(300); app.close()'"
-
 # Isaac Lab demos (these launch Isaac Sim automatically)
 lab-help = "cd IsaacLab && ./isaaclab.sh --help"
 lab-arms = "python IsaacLab/scripts/demos/arms.py"
