@@ -22,7 +22,7 @@ ldd --version
 
 ### 1. Clone this repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/isaaclab-pixi.git
+git clone https://github.com/AtharvaBhorpe/isaaclab-pixi.git
 cd isaaclab-pixi
 ```
 
