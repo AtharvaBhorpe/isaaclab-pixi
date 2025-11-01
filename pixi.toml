@@ -16,7 +16,9 @@ torchvision = { version = "==0.22.0", index = "https://download.pytorch.org/whl/
 isaacsim = { version = "==5.1.0", extras = ["all", "extscache"] }
 
 [tasks]
-setup-isaaclab = "git clone https://github.com/isaac-sim/IsaacLab.git && cd IsaacLab && ./isaaclab.sh --install"
+clone-isaaclab = "test -d IsaacLab || git clone ..."
+install-isaaclab = { cmd = "cd IsaacLab && pip install -e .", depends-on = ["clone-isaaclab"] }
+setup = { depends-on = ["install-isaaclab"] }
 
 # Launch Isaac Sim GUI
 isaac-sim = "isaacsim"
