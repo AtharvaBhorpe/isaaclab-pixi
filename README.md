@@ -45,6 +45,10 @@ On first run, you'll need to accept the NVIDIA Omniverse EULA.
 
 ### Running Isaac Lab Demos
 ```bash
+
+# List available demos
+pixi run lab-list-demos
+
 # Robotic arm manipulation
 pixi run lab-arms
 
