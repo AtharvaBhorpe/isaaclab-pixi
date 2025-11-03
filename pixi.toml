@@ -22,7 +22,7 @@ isaacsim = { version = "==5.1.0", extras = ["all", "extscache"] }
 
 [tasks]
 # Installation tasks
-clone-isaaclab = "test -d IsaacLab || git clone ..."
+clone-isaaclab = "test -d IsaacLab || git clone https://github.com/isaac-sim/IsaacLab.git"
 install-isaaclab = { cmd = "cd IsaacLab && pip install -e .", depends-on = ["clone-isaaclab"] }
 setup = { depends-on = ["install-isaaclab"] }
 
