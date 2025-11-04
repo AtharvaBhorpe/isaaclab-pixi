@@ -41,6 +41,21 @@ This will:
 ### 3. Accept EULA
 On first run, you'll need to accept the NVIDIA Omniverse EULA.
 
+## Verify Installation
+```bash
+pixi run verify
+```
+Above command will verify if Isaac Lab and CUDA are properly installed.
+
+Expected output:
+```bash
+✨ Pixi task (test-import): python -c "import isaaclab; print('Isaac Lab installed:', isaaclab.__file__)"
+Isaac Lab installed: C:\Users\athar\Documents\isaaclab-pixi\IsaacLab\source\isaaclab\isaaclab\__init__.py
+
+✨ Pixi task (test-torch): python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
+CUDA available: True
+```
+
 ## Usage
 
 ### Running Isaac Lab Demos
