@@ -26,6 +26,7 @@ clone-isaaclab = "git clone https://github.com/isaac-sim/IsaacLab.git"
 test-import = "python -c \"import isaaclab; print('Isaac Lab installed:', isaaclab.__file__)\""
 test-torch = "python -c \"import torch; print('CUDA available:', torch.cuda.is_available())\""
 verify = { depends-on = ["test-import", "test-torch"] }
+pixi-install = {cmd = "pixi install"}
 
 ## Isaac Sim
 isaac-sim = "isaacsim"
@@ -39,7 +40,7 @@ lab-markers = "python IsaacLab/scripts/demos/markers.py"
 # Linux-specific
 [target.linux-64.tasks]
 install-isaaclab = { cmd = "cd IsaacLab && chmod +x isaaclab.sh && ./isaaclab.sh --install", depends-on = ["clone-isaaclab"] }
-setup = { depends-on = ["install-isaaclab"] }
+setup = { depends-on = ["pixi-install", "install-isaaclab"] }
 lab-list-demos = "ls -1 IsaacLab/scripts/demos/*.py"
 clean = "rm -rf IsaacLab .pixi pixi.lock"
 
@@ -47,6 +48,6 @@ clean = "rm -rf IsaacLab .pixi pixi.lock"
 [target.win-64.tasks]
 install-isaaclab-win = { cmd = "IsaacLab\\isaaclab.bat --install", depends-on = ["clone-isaaclab"] }
 setup-win = { depends-on = ["install-isaaclab-win"] }
-setup = { depends-on = ["install-isaaclab-win"] }
+setup = { depends-on = ["pixi-install", "install-isaaclab-win"] }
 lab-list-demos = "dir /b IsaacLab\\scripts\\demos\\*.py"
 clean = "if exist IsaacLab rmdir /s /q IsaacLab && if exist .pixi rmdir /s /q .pixi && if exist pixi.lock del pixi.lock"
