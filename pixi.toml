@@ -46,8 +46,7 @@ clean = "rm -rf IsaacLab .pixi pixi.lock"
 
 # Windows-specific
 [target.win-64.tasks]
-install-isaaclab-win = { cmd = "IsaacLab\\isaaclab.bat --install", depends-on = ["clone-isaaclab"] }
-setup-win = { depends-on = ["install-isaaclab-win"] }
-setup = { depends-on = ["pixi-install", "install-isaaclab-win"] }
+install-isaaclab = { cmd = "IsaacLab\\isaaclab.bat --install", depends-on = ["clone-isaaclab"] }
+setup = { depends-on = ["pixi-install", "install-isaaclab"] }
 lab-list-demos = "dir /b IsaacLab\\scripts\\demos\\*.py"
 clean = "if exist IsaacLab rmdir /s /q IsaacLab && if exist .pixi rmdir /s /q .pixi && if exist pixi.lock del pixi.lock"
