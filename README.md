@@ -28,7 +28,6 @@ cd isaaclab-pixi
 
 ### 2. Install all dependencies
 ```bash
-pixi install
 pixi run setup
 ```
 
