@@ -116,6 +116,26 @@ The main configuration is in `pixi.toml`:
 
 ## Troubleshooting
 
+### UV_HTTP_TIMEOUT error
+You might get the following error after running `pixi run setup`
+```bash
+ubuntu22@ubuntu22-btw:~/isaaclab-pixi$ pixi run setup
+✨ Pixi task (pixi-install): pixi install
+Error:   × Failed to update PyPI packages for environment 'default'
+  ├─▶ Failed to prepare distributions
+  ├─▶ Failed to download `nvidia-cufft-cu12==11.3.3.41`
+  ├─▶ Failed to extract archive: nvidia_cufft_cu12-11.3.3.41-py3-none-
+  │   manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+  ├─▶ I/O operation failed during extraction
+  ╰─▶ Failed to download distribution due to network timeout. Try increasing
+      UV_HTTP_TIMEOUT (current value: 30s).
+```
+To solve the above error, run the following command then run `pixi run setup`
+```bash
+export UV_HTTP_TIMEOUT=1000
+pixi run setup 
+```
+
 ### Module 'isaaclab' not found
 ```bash
 pixi run setup  # Re-run setup to ensure Isaac Lab is installed
