@@ -11,6 +11,7 @@ libc = { family = "glibc", version = "2.35" }
 python = "3.11.*"
 git = "*"
 pip = "*"
+packaging = "==23.0"
 
 [pypi-options]
 extra-index-urls = ["https://pypi.nvidia.com"]
